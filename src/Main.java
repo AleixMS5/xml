@@ -187,6 +187,7 @@ public class Main {
 
 
 //    XPath:
+            //https://docs.google.com/presentation/d/16__cAgOb6V979g9ag3sq6Qf4hap5tLmCxsCXE7hsrBc/edit?usp=sharing
 //    Què és XPath?
             /**XPath (XML Path Language) is an expression language designed to support the query or transformation of XML documents.*/
 //    Què puc fer amb XPath?
@@ -207,7 +208,7 @@ public class Main {
 
             System.out.println(" Get CDs titles written before 1990");
 
-            // 1) Get book titles written after 2001
+
             XPathExpression expr = xpath.compile("//CD[YEAR<1990]/TITLE/text()");
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
             NodeList nodes = (NodeList) result;
