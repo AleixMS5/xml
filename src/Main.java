@@ -1,14 +1,12 @@
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
-import org.xml.sax.Attributes;
-import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
 
-import javax.xml.parsers.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.*;
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.io.IOException;
 public class Main {
     public Main() throws ParserConfigurationException, IOException, SAXException, XPathExpressionException {
     }
@@ -52,10 +50,21 @@ public class Main {
      */
 //    Excepcions que s'han de controlar.
     /**
-     * ParserConfigurationException, IOException, SAXException
+     *       catch (IOException e) {
+     *
+     *      } catch (ParserConfigurationException e) {
+     *
+     *      } catch (TransformerConfigurationException e) {
+     *
+     *      } catch (TransformerException e) {
+     *
+     *      } catch (DOMException e) {
+     *
+     *      } catch (SAXException e) {
+     *
+     *      }
      */
-//    Codi d'exemple de lectura des de fitxer.
-    /***/
+
 
 
 
@@ -94,83 +103,83 @@ public class Main {
 
 
 //    Excepcions que s'han de controlar.
-    /***/
+    /**ParserConfigurationException, IOException, SAXException XPathExpressionException*/
 //    Codi d'exemple de lectura des de fitxer.
-    /***/
+    /** */
 
         public static void main(String argv[]) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException {
-            try {
-                SAXParserFactory factory = SAXParserFactory.newInstance();
-                SAXParser saxParser = factory.newSAXParser();
-                DefaultHandler handler = new DefaultHandler() {
-                    boolean btitle = false;
-                    boolean bartist = false;
-                    boolean bcountry = false;
-                    boolean bprice = false;
-                    boolean byear = false;
-
-
-                    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-                        System.out.println("inicia elemento:" + qName);
-                        if (qName.equalsIgnoreCase("CD")) {
-
-                        }
-                        if (qName.equalsIgnoreCase("title")) {
-                            btitle = true;
-                        }
-                        if (qName.equalsIgnoreCase("artist")) {
-                            bartist = true;
-                        }
-                        if (qName.equalsIgnoreCase("country")) {
-                            bcountry = true;
-                        }
-                        if (qName.equalsIgnoreCase("year")) {
-                            byear = true;
-                        }
-                        if (qName.equalsIgnoreCase("price")) {
-                            bprice = true;
-                        }
-
-                    }
-
-                    public void endElement(String uri, String localName, String qName) throws SAXException {
-                        System.out.println("finaliza elemento:" + qName);
-                    }
-
-                    public void characters(char ch[], int start, int length) throws SAXException {
-                        if (btitle) {
-                            System.out.println("tiltesax: " + new String(ch, start, length));
-                            btitle = false;
-                        }
-                        if (bartist) {
-                            System.out.println("artistsax: " + new String(ch, start, length));
-                            bartist = false;
-                        }
-                        if (bcountry) {
-                            System.out.println("countrysax: " + new String(ch, start, length));
-                            bcountry = false;
-                        }
-                        if (byear) {
-                            System.out.println("yearsax: " + new String(ch, start, length));
-                            byear = false;
-                        }
-                        if (bprice) {
-                            System.out.println("pricesax: " + new String(ch, start, length));
-                            bprice = false;
-                        }
-
-
-                    }
-                };
-                File file = new File("ejercicio3.xml");
-                InputStream inputStream = new FileInputStream(file);
-                Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-                InputSource is = new InputSource(reader);
-                is.setEncoding("UTF-8");
-                saxParser.parse(is, handler);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+//            try {
+//                SAXParserFactory factory = SAXParserFactory.newInstance();
+//                SAXParser saxParser = factory.newSAXParser();
+//                DefaultHandler handler = new DefaultHandler() {
+//                    boolean btitle = false;
+//                    boolean bartist = false;
+//                    boolean bcountry = false;
+//                    boolean bprice = false;
+//                    boolean byear = false;
+//
+//
+//                    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+//                        System.out.println("inicia elemento:" + qName);
+//                        if (qName.equalsIgnoreCase("CD")) {
+//
+//                        }
+//                        if (qName.equalsIgnoreCase("title")) {
+//                            btitle = true;
+//                        }
+//                        if (qName.equalsIgnoreCase("artist")) {
+//                            bartist = true;
+//                        }
+//                        if (qName.equalsIgnoreCase("country")) {
+//                            bcountry = true;
+//                        }
+//                        if (qName.equalsIgnoreCase("year")) {
+//                            byear = true;
+//                        }
+//                        if (qName.equalsIgnoreCase("price")) {
+//                            bprice = true;
+//                        }
+//
+//                    }
+//
+//                    public void endElement(String uri, String localName, String qName) throws SAXException {
+//                        System.out.println("finaliza elemento:" + qName);
+//                    }
+//
+//                    public void characters(char ch[], int start, int length) throws SAXException {
+//                        if (btitle) {
+//                            System.out.println("tiltesax: " + new String(ch, start, length));
+//                            btitle = false;
+//                        }
+//                        if (bartist) {
+//                            System.out.println("artistsax: " + new String(ch, start, length));
+//                            bartist = false;
+//                        }
+//                        if (bcountry) {
+//                            System.out.println("countrysax: " + new String(ch, start, length));
+//                            bcountry = false;
+//                        }
+//                        if (byear) {
+//                            System.out.println("yearsax: " + new String(ch, start, length));
+//                            byear = false;
+//                        }
+//                        if (bprice) {
+//                            System.out.println("pricesax: " + new String(ch, start, length));
+//                            bprice = false;
+//                        }
+//
+//
+//                    }
+//                };
+//                File file = new File("ejercicio3.xml");
+//                InputStream inputStream = new FileInputStream(file);
+//                Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+//                InputSource is = new InputSource(reader);
+//                is.setEncoding("UTF-8");
+//                saxParser.parse(is, handler);
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
 
 
 //    Codi d'exemple d'escriptura a fitxer.
