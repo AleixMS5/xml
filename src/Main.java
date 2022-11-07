@@ -30,7 +30,7 @@ public class Main {
      * 	Best for the smaller size of files.
      * 	It is not good at making XML files in low memory.
      * 	The internal structure can be created by DOM Parser.
-     *  It can insert or delete nodes.
+     *  It can insert or delete nodes.<--
      * 	In DOM parser backward and forward search is possible
      * 	Suitable for large XML document.
      * 	It loads whole XML documents in memory.
@@ -183,7 +183,7 @@ public class Main {
      * Best for the larger sizes of files.
      * It is suitable for making XML files in Java.
      * The internal structure can not be created by SAX Parser.
-     * It is read-only.
+     * It is read-only.<--
      * In the SAX parser backward navigation is not possible.
      * Suitable for efficient memory.
      * A small part of the XML file is only loaded in memory.
@@ -199,7 +199,10 @@ public class Main {
      import org.xml.sax.Attributes;
      import org.xml.sax.InputSource;
      import org.xml.sax.SAXException;
-     import org.xml.sax.helpers.DefaultHandler;*/
+     import org.xml.sax.helpers.DefaultHandler;
+
+     */
+
 
 //    Excepcions que s'han de controlar.
     /***/
