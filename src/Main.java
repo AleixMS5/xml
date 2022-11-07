@@ -212,8 +212,13 @@ public class Main {
             XPathExpression expr = xpath.compile("//CD[YEAR<1990]/TITLE/text()");
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
             NodeList nodes = (NodeList) result;
+            XPathExpression expr2 = xpath.compile("//CD[YEAR<1990]/YEAR/text()");
+            Object result2 = expr2.evaluate(doc, XPathConstants.NODESET);
+            NodeList nodes2 = (NodeList) result2;
             for (int i = 0; i < nodes.getLength(); i++) {
-                System.out.println(nodes.item(i).getNodeValue());
+                System.out.println("Cd: "+nodes.item(i).getNodeValue());
+                System.out.println("year: "+nodes2.item(i).getNodeValue());
+                System.out.println();
             }
 
 
